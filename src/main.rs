@@ -1,4 +1,4 @@
-#![windows_subsystem = "windows"]
+//#![windows_subsystem = "windows"]
 
 extern crate web_view;
 
@@ -12,7 +12,10 @@ fn main() {
         .resizable(true)
         .debug(true)
         .user_data(())
-        .invoke_handler(|_webview, _arg| Ok(()))
+        .invoke_handler(|_webview, _arg| {
+            println!("Nav to: {}", _arg);
+            Ok(())
+        })
         .run()
         .unwrap();
 }
