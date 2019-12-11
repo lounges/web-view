@@ -311,7 +311,12 @@ public:
     }
 
     void destroy_window() {
-        DestroyWindow(m_window);
+        try
+        {
+            DestroyWindow(m_window);
+        }
+        catch(...)
+        {} //eat it
     }
 
     void* window() { return (void*)m_window; }
