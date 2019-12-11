@@ -311,12 +311,7 @@ public:
     }
 
     void destroy_window() {
-        try
-        {
-            DestroyWindow(m_window);
-        }
-        catch(...)
-        {} //eat it
+        DestroyWindow(m_window);
     }
 
     void* window() { return (void*)m_window; }
@@ -587,7 +582,9 @@ WEBVIEW_API void webview_dispatch(webview_t w, webview_dispatch_fn fn,
 
 WEBVIEW_API void webview_terminate(webview_t w)
 {
-    static_cast<webview::webview*>(w)->destroy_window();
+    try {
+        static_cast<webview::webview*>(w)->destroy_window();
+    }catch(...){}
 }
 
 WEBVIEW_API void webview_destroy_window(webview_t w)
