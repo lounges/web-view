@@ -596,7 +596,7 @@ WEBVIEW_API void webview_destroy_window(webview_t w)
 
 WEBVIEW_API void webview_exit(webview_t w)
 {
-    webview_terminate(w);
+    //webview_terminate(w);
 }
 
 WEBVIEW_API void webview_debug(const char *format, ...)
