@@ -352,6 +352,10 @@ impl<'a, T> WebView<'a, T> {
         unsafe { webview_terminate(self.inner) }
     }
 
+    pub fn exit(&mut self) {
+        unsafe { webview_exit(self.inner) }
+    }
+
     /// Executes the provided string as JavaScript code within the `WebView` instance.
     pub fn eval(&mut self, js: &str) -> WVResult {
         let js = CString::new(js)?;
