@@ -306,8 +306,10 @@ public:
     }
 
     void terminate() {
-        browser_window::terminate();
-        m_webview.Close();
+        try{
+            browser_window::terminate();
+            m_webview.Close();
+        }catch(...){}
     }
 
     void destroy_window() {
