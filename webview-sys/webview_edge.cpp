@@ -310,6 +310,10 @@ public:
         m_webview.Close();
     }
 
+    void destroy_window() {
+        DestroyWindow(m_window);
+    }
+
     void* window() { return (void*)m_window; }
 
     void* get_user_data() { return this->user_data; }
@@ -578,7 +582,12 @@ WEBVIEW_API void webview_dispatch(webview_t w, webview_dispatch_fn fn,
 
 WEBVIEW_API void webview_terminate(webview_t w)
 {
-    static_cast<webview::webview*>(w)->terminate();
+    static_cast<webview::webview*>(w)->destroy_window();
+}
+
+WEBVIEW_API void webview_destroy_window(webview_t w)
+{
+    static_cast<webview::webview*>(w)->destroy_window();
 }
 
 WEBVIEW_API void webview_exit(webview_t w)

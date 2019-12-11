@@ -352,6 +352,11 @@ impl<'a, T> WebView<'a, T> {
         unsafe { webview_terminate(self.inner) }
     }
 
+    /// Calls win32 DestroyWindow
+    pub fn destroy_window(&mut self) {
+        unsafe { webview_destroy_window(self.inner) }
+    }
+
     pub fn exit(&mut self) {
         unsafe { webview_exit(self.inner) }
     }

@@ -41,6 +41,7 @@ WEBVIEW_API void webview_dialog(webview_t w,
 WEBVIEW_API void webview_dispatch(webview_t w, webview_dispatch_fn fn,
                                   void *arg);
 WEBVIEW_API void webview_terminate(webview_t w);
+WEBVIEW_API void webview_destroy_window(webview_t w);
 WEBVIEW_API void webview_exit(webview_t w);
 WEBVIEW_API void webview_debug(const char *format, ...);
 WEBVIEW_API void webview_print_log(const char *s);
